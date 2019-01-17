@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- '8'
+- '10'
+cache: yarn
+script: yarn ci
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: igor@kamyshev.me
+  api_key:
+    secure: LTTUZVzyGHz3w0DYU7Quv+D6mgkTyx+XDmT3p7XI+MTLGH93jO/dpqtBR8NX+PngdisQmCOsh5uZlE3pzI7VW+kn0KhYyK+MToo1gGAC6IgN6Qir8k2EtkPhSyMDAu2iHCSRTgSNJXR9saepnsFGuqci39cPW2/S7NHRWQ145JOR3QoCQCj7/gjOXgd8aCH9bxnO3Ffor/MhCZtyRVnimKpVVO8wYBCbQu88rQV1BrSpF4xrHYTKxmRes16jp4qKcDdIG0PWIROkj3xLVAuFJPKQLnw2eUHl+elDXFCNz/aGlBVa16skWmkkqH4HEUQuWyxSGDuvMo2usYUXt/j4KpjTg+/kadIjCmg/ueY1Lpe6xBFijDg0XTC31Jo8s32WkHhF3e4PSadE1kVJWG5wOn+6w9RE8jxGEZZBWm1SEZncLzfXGA5FcBNigjoYCzKEMqBqwRi/cZRzsyaNEIIW0GqKct8ddFgHJADbkAsR1o2USqkRJnqN3UvJxLUmup/0UlU6p4SbqYK9BqioLh+YhL8MfknbX0fN9pXfhQyfb3hys83T6IpVGKdri95W9aPWa7nqY+rTvdkUTmnFtRmyoxfLueD3s9JM24Zey1H3Yu1TBIN9TSK7d97gX9ZiYTS0FVWnecWC9UxQutacptRbqLAMQBz7qAcCkXPc32YcO+w=
+  on:
+    tags: true
+    repo: solid-soda/console

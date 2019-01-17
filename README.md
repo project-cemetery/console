@@ -6,3 +6,11 @@ The Console component allows you to create command-line commands. Your console c
 ## Instalation
 
 `yarn add @solid-soda/console`
+
+## Usage
+
+```ts
+const app = new ConsoleApplication(commands)
+
+app.run(process.argv)
+```
