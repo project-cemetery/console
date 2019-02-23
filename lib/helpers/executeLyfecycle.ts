@@ -5,7 +5,7 @@ export const executeInitialize = async (command: ConsoleCommand) => {
     return
   }
 
-  return command.initialize()
+  await Promise.resolve(command.initialize())
 }
 
 export const executeInteract = async (command: ConsoleCommand) => {
@@ -13,5 +13,5 @@ export const executeInteract = async (command: ConsoleCommand) => {
     return
   }
 
-  return command.interact()
+  await Promise.resolve(command.interact())
 }

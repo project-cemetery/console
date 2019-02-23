@@ -25,8 +25,6 @@ const parseNamedArgs = (args: RawNamedArgs): ParsedNamedArgs => {
     if (typeof value === 'boolean') {
       parsedArgs[key] = value
     }
-
-    return
   })
 
   return parsedArgs

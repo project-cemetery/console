@@ -8,14 +8,6 @@ export interface PreparedNamedArgs {
   [key: string]: string
 }
 
-export default (config: CommandConfiguration, namedArgs: ParsedNamedArgs) => {
-  const namedArgsConfig = getNormalizedNamedArgsConfig(config)
-  const namedPreparedArgs = prepareExists(namedArgsConfig, namedArgs)
-  const completeArgs = prepareNotFound(namedArgsConfig, namedPreparedArgs)
-
-  return completeArgs
-}
-
 export const getNormalizedNamedArgsConfig = (
   config: CommandConfiguration,
 ): NamedArgument[] =>
@@ -72,4 +64,12 @@ const prepareNotFound = (
     })
 
   return namedPreparedArgs
+}
+
+export default (config: CommandConfiguration, namedArgs: ParsedNamedArgs) => {
+  const namedArgsConfig = getNormalizedNamedArgsConfig(config)
+  const namedPreparedArgs = prepareExists(namedArgsConfig, namedArgs)
+  const completeArgs = prepareNotFound(namedArgsConfig, namedPreparedArgs)
+
+  return completeArgs
 }

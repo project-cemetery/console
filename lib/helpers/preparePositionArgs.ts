@@ -7,14 +7,6 @@ export interface PreparedPositionArgs {
   [key: string]: string
 }
 
-export default (config: CommandConfiguration, positionArgs: string[]) => {
-  const positionArgsConfig = getNormalizedPositionArgsConfig(config)
-  const positionPreparedArgs = prepareExists(positionArgsConfig, positionArgs)
-  const completeArgs = prepareNotFound(positionArgsConfig, positionPreparedArgs)
-
-  return completeArgs
-}
-
 export const getNormalizedPositionArgsConfig = (
   config: CommandConfiguration,
 ): PositionArgument[] =>
@@ -73,4 +65,12 @@ const prepareNotFound = (
     })
 
   return positionPreparedArgs
+}
+
+export default (config: CommandConfiguration, positionArgs: string[]) => {
+  const positionArgsConfig = getNormalizedPositionArgsConfig(config)
+  const positionPreparedArgs = prepareExists(positionArgsConfig, positionArgs)
+  const completeArgs = prepareNotFound(positionArgsConfig, positionPreparedArgs)
+
+  return completeArgs
 }

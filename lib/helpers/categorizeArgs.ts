@@ -12,16 +12,6 @@ import {
   PreparedPositionArgs,
 } from './preparePositionArgs'
 
-export const categorizeNamedArgs = (
-  config: CommandConfiguration,
-  args: PreparedNamedArgs,
-) => categorizeArgs(args, getNormalizedNamedArgsConfig(config))
-
-export const categorizePositionArgs = (
-  config: CommandConfiguration,
-  args: PreparedPositionArgs,
-) => categorizeArgs(args, getNormalizedPositionArgsConfig(config))
-
 interface ArgConfig {
   required?: boolean
   name: string
@@ -40,3 +30,13 @@ const categorizeArgs = <TArgs extends object, TConfig extends ArgConfig[]>(
     required: omit(args, optionalArgs) as TArgs,
   }
 }
+
+export const categorizeNamedArgs = (
+  config: CommandConfiguration,
+  args: PreparedNamedArgs,
+) => categorizeArgs(args, getNormalizedNamedArgsConfig(config))
+
+export const categorizePositionArgs = (
+  config: CommandConfiguration,
+  args: PreparedPositionArgs,
+) => categorizeArgs(args, getNormalizedPositionArgsConfig(config))
